@@ -1,6 +1,10 @@
 /* Declare and Define the functions here that will make the function calls below work properly */
-
-
+ 
+var first = function(arr, cb) {
+  var firstName = arr[0];
+  return cb(firstName) {
+  }
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -8,12 +12,13 @@ first(names, function(firstName){
 });
 
 
-
-
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
-
+var last = function(arr, cb) {
+  var lastName = arr[arr.length - 1];
+  return cb(lastName);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -27,6 +32,15 @@ last(names, function(lastName){
 
 //have the contains function return a boolean value for if the name is in the array or not.
 
+var contains = function(str, arr, cb) {
+  var bool;
+  for (var i = 0; i < arr.length; i++) {
+    if(arr[i] === str) {
+      bool = true;
+    } 
+  };
+  return cb(bool);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains('Colt', names, function(yes){
@@ -42,7 +56,11 @@ contains('Colt', names, function(yes){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+var map = function(arr, cb) {
+  return cb(arr) {
+    // do something
+  }
+}
 
 
 var numbers = [1,2,3,4,5];
@@ -58,6 +76,16 @@ map(numbers, function(num){
 
 
 
+var uniq = function(arr, cb) {
+  var newArray = [];
+  for (var i = 0; i < arr.length; i++) {
+    if(newArray.indexOf(arr[i]) < 0 ) {
+    newArray.push(arr[i])
+  }
+ }
+ return cb(newArray);
+}
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -70,13 +98,18 @@ uniq(names, function(uniqArr){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
-
+var each = function(arr, cb) {
+  //var index = 0;
+  //var item = arr[0];
+  for (var i = 0; i < arr.length; i++) {
+    return cb(arr[i], i);
+  };
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
   console.log('The item in the ' + indice + 'position is ' + item)
 });
-
 
 
 
