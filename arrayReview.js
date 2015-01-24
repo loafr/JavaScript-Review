@@ -74,7 +74,20 @@ alert(second) //[1,2,3,4,5,6,7];
 //write a function called longest that takes in our sentence variable, and returns the longest word in that sentence.
 var sentence = "Dev Mountain is the best"
 
-  //code here
+var longest = function (string) {
+    var arr = string.split(" ");
+    var longest = 0;
+    var word = null;
+    for (var i = 0; i < arr.length; i++) {
+        if (longest < arr[i].length) {
+            longest = arr[i].length;
+            word = arr[i];
+        }
+    }
+    return word;
+}
+
+longest(sentence);
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -85,9 +98,24 @@ var sentence = "Dev Mountain is the best"
 var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
-  //code here
+/* cheating with regex: 
+var capitalize = function(string) {
+	return string.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );
+};
 
+capitalize(myPoem); */
 
+var capitalize = function(string){
+	var arr = string.split(" ");
+	var newString = [];
+	for (var i = 0; i < arr.length; i++) {
+		newString.push(arr[i].charAt(0).toUpperCase());
+	};
+	return newString.join(" ");
+}
+capitalize(myPoem);
+
+//return string.charAt(0).toUpperCase() + string.slice(1);
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -95,3 +123,35 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
 //Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+
+var vowelCounter = function(string){
+	var arr = string.split("");
+	var count = 0;
+	for (var i = 0; i < arr.length; i++) {
+		if(arr[i] === "a") { // || wasn't working for OR
+			count++;
+		} else if (arr[i] === "e") {
+			count++;
+		} else if (arr[i] === "i") {
+			count++;
+		} else if (arr[i] === "o") {
+			count++;
+		} else if (arr[i] === "u") {
+			count++;
+		} else {
+			//do nothing
+		}
+	};
+	return console.log("The number of vowels are: ", count);
+}
+
+vowelCounter(theOdyssey);
+
+
+//Internet's solution:
+var theOdyssey = "function expression or function declaration? Tis an obvious choice";
+var vowelCounter = function (str) {
+    return --(str.split(/[aeiou]/).length);
+}
+vowelCounter(theOdyssey);
+
